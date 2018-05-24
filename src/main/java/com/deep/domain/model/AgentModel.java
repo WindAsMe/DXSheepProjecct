@@ -17,9 +17,7 @@ public class AgentModel {
     private String agentArea;
 
     private int agentFather;
-
     private long responsibleId;
-
     private String responsibleName;
 
 
