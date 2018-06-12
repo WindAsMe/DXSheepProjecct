@@ -263,18 +263,29 @@ public class JedisUtil {
             return null;
         }
         try {
-            if (!jedis.exists(key)) {
-                return null;
-            } else {
-                String message = jedis.get(key);
-                if (message == null || message.length() == 0) {
-                    if (key.equals("Message")) {
-                        jedis.set(key, JedisUtil.message);
-                    } else if (key.equals("ExpireTime")) {
-                        jedis.set(key, JedisUtil.expireTime);
-                    }
+
+            if ("Message".equals(key)) {
+                if (jedis.get(key) == null){
+                    jedis.set("Message", message);
+                    return message;
+                } else {
+                    return jedis.get(key);
                 }
-                return jedis.get(key);
+
+            } else if ("ExpireTime".equals(key)){
+                if (jedis.get(key) == null){
+                    jedis.set("ExpireTime", expireTime);
+                    return expireTime;
+                } else {
+                    return jedis.get(key);
+                }
+            } else if ("PressureTips".equals(key)) {
+                if (jedis.get(key) == null) {
+                    jedis.set("PressureTips", pressureTips);
+                    return pressureTips;
+                } else {
+                    return jedis.get(key);
+                }
             }
         }  catch (Exception e ) {
             logger.info("获取异常 {}",e.getMessage());
@@ -302,10 +313,7 @@ public class JedisUtil {
             return ;
         }
         try {
-            if (!jedis.exists(key)) {
-            } else {
-                jedis.set(key, value);
-            }
+            jedis.set(key, value);
         } catch (Exception ex) {
             logger.info("获取异常{}", ex.getMessage());
         } finally {

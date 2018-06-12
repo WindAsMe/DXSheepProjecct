@@ -11,8 +11,8 @@ public class Pic implements Serializable {
 
     private String address;
 
-    @NotBlank(message = "商标耳牌不能为空")
-    @Size(min =15, max =15, message = "商标耳牌长度错误")
+//    @NotBlank(message = "商标耳牌不能为空")
+//    @Size(min =15, max =15, message = "商标耳牌长度错误")
     private String brand;
 
 
@@ -53,8 +53,8 @@ public class Pic implements Serializable {
     @NotBlank(message = "上传人不能为空")
     private String uploader;
 
-    @NotBlank(message = "检疫耳牌不能为空")
-    @Size(min =8, max =8, message = "检疫耳牌长度错误")
+//    @NotBlank(message = "检疫耳牌不能为空")
+//    @Size(min =8, max =8, message = "检疫耳牌长度错误")
     private String vaccine;
 
     private String filename;
@@ -68,6 +68,11 @@ public class Pic implements Serializable {
     private Integer size;
 
     private Integer filetype;
+
+    public boolean isBrand(){
+        String regex = "^[G|M]\\d{5}$";
+        return Pattern.matches(regex, this.brand);
+    }
 
     public Integer getFiletype() {
         return filetype;
