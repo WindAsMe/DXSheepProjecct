@@ -27,6 +27,7 @@ public class LiveBroadcastResource {
 
   private final Logger logger = LoggerFactory.getLogger(LiveBroadcastResource.class);
 
+
   /**
    * 方法功能:获取推流地址
    * @param userid
