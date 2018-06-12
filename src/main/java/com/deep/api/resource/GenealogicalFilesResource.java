@@ -207,7 +207,6 @@ public class GenealogicalFilesResource {
       } else {
         return JudgeUtil.JudgeFind(genealogicalFilesModels, size);
       }
-
     }
 
 //    /**
