@@ -93,6 +93,15 @@
         id = #{id}
     </select>
 
+    <select id="getGenealogicalFilesModelByTradeMarkEarTag" resultMap="GenealogicalFiles">
+        SELECT
+        *
+        FROM
+        genealogical_files
+        WHERE
+        trademark_eartag = #{tradeMarkEartag}
+    </select>
+
     <select id="getGenealogicalFilesModelByFactoryNum" resultMap="GenealogicalFiles">
         SELECT
         *

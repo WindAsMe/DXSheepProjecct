@@ -47,6 +47,10 @@ public class  GenealogicalFilesService {
     }
 
 
+    public GenealogicalFilesModel getGenealogicalFilesModelByTradeMarkEarTag(String tradeMarkEartag){
+        return this.genealogicalFilesMapper.getGenealogicalFilesModelByTradeMarkEarTag(tradeMarkEartag);
+    }
+
     public GenealogicalFilesModel getGenealogicalFilesModelById(long id) {
         return this.genealogicalFilesMapper.getGenealogicalFilesModelById(id);
     }

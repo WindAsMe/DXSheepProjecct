@@ -24,8 +24,7 @@ public interface GenealogicalFilesMapper {
 
     GenealogicalFilesModel getGenealogicalFilesModelByImmuneEartag(@Param("immuneEartag") String immuneEartag);
 
-
-    GenealogicalFilesModel getGenealogicalFilesModelByTradeMarkEartag(@Param("tradeMarkEartag")String tradeMarkEartag);
+    GenealogicalFilesModel getGenealogicalFilesModelByTradeMarkEarTag(@Param("tradeMarkEartag")String tradeMarkEartag);
 
     GenealogicalFilesModel getGenealogicalFilesModelByNativeEartag(@Param("nativeEartag")String nativeEartag);
 

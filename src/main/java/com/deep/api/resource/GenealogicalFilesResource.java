@@ -209,6 +209,27 @@ public class GenealogicalFilesResource {
       }
     }
 
+
+
+    @RequestMapping(value = "/tree", method = RequestMethod.GET)
+    public Response findInTree(@RequestParam("tradeMarkEartag") String tradeMarkEartag) {
+        GenealogicalFilesModel model = this.genealogicalFilesService.getGenealogicalFilesModelByTradeMarkEarTag(tradeMarkEartag);
+        if (model == null) {
+            return Responses.errorResponse("无效的耳牌号！");
+        } else {
+            HashMap<String, String> map = new HashMap<>();
+            map.put("tradeMarkEartag", tradeMarkEartag);
+            map.put("mother", model.getEartagOfMother());
+            map.put("father", model.getEartagOfFather());
+            map.put("mothersMother", model.getEartagOfMothersMother());
+            map.put("mothersFather", model.getEartagOfMothersFather());
+            map.put("fathersFather", model.getEartagOfFathersFather());
+            map.put("fathersMother", model.getEartagOfFathersMother());
+            return Responses.successResponse(map);
+        }
+
+    }
+
 //    /**
 //     * 用于条件查找
 //     * @param factoryNum 工厂号
